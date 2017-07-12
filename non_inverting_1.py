@@ -32,13 +32,13 @@ relation = limit(V,omega,0) / V
 
 # example of calculations 
 # set value for R1 = 100 Ohm 
-relation = relation.subs(R1,2000)
+relation = relation.subs(R1,100)
 # set value for R2 = 10 Ohm
-relation = relation.subs(R2,1000)
+relation = relation.subs(R2,10)
 # set cutoff frequency 200Hz
 relation = relation.subs(omega,200/(2*pi))
 C = solve(Abs(relation)-(1/sqrt(2)),C)[1]
-pprint(float(C)*1E9)
+pprint(float(C)*1E6)
 
 
 

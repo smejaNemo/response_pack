@@ -34,8 +34,8 @@ relation = relation.subs(R3,R4)
 realRelation = re(relation)
 imRelation = im(relation)
 absrelation = simplify(sqrt(realRelation**2 + imRelation**2))
-pprint( simplify(absrelation - (1/sqrt(2)) )**2 )
-pprint(solve( absrelation - (1/sqrt(2)),C)[0])
+#pprint( simplify(absrelation - (2/sqrt(2)) )**2 )
+pprint(solve( absrelation - (2/sqrt(2)),C))
 
 
 #pprint(  )
@@ -48,6 +48,6 @@ relation = relation.subs(R3,100)
 # set cutoff frequency 200Hz
 relation = relation.subs(omega,200/(2*pi))
 
-#pprint( solve( relation-(1/sqrt(2)),C) )
-#pprint(float(C)*1E9)
+C = solve( relation-(2/sqrt(2)),C)[1] 
+pprint(float(C)*1E6)
 
