@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 #from sympy.functions import re
 
 
-init_printing(use_unicode=True)
+sy.init_printing(use_unicode=True)
 
 C = sy.Symbol('C',positive=True)
 omega = sy.Symbol('omega',positive=True)
@@ -53,7 +53,7 @@ print(fc)
 X_line_V = np.ones(len(h_freq)) * fc
 Y_line_V = np.linspace(h_freq.min(),h_freq.max(),len(h_freq))
 
-Y_line_H = np.ones(len(h_freq)) * sy.Abs(H.subs(omega,fc*2*np.pi))
+Y_line_H = np.ones(len(h_freq)) * float(sy.Abs(H.subs(omega,fc*2*np.pi)))
 X_line_H = freq
 plt.plot(np.log10(freq),20*np.log10(h_freq))
 plt.plot(np.log10(X_line_V),20*np.log10(Y_line_V))
